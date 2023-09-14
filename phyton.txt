@@ -1,0 +1,48 @@
+"""
+Tenemos una lista de personas
+
+lista = ["juan salvo", "henry courtney", "elizabeth bennet", "marge simpson"]
+
+Crear una funcion que ponga mayúscula solo en la primer letra, tanto del nombre como del apellido y devuelva otra lista con estos cambios.
+
+"""
+lista = ["juan salvo", "henry courtney", "elizabeth bennet", "marge simpson"]
+
+i = 0
+for cad in lista:
+    lista[i] = lista[i].title()
+    i += 1
+print(lista)
+
+
+def capitalizar_nombres(lista_nombres):
+    lista_capitalizada = []
+    for nombre_apellido in lista_nombres:
+        palabras = nombre_apellido.split()
+        nombre_capitalizado = palabras[0].capitalize()
+        if len(palabras) > 1:
+            apellido_capitalizado = palabras[-1].capitalize()
+            nombre_capitalizado += " " + apellido_capitalizado
+        lista_capitalizada.append(nombre_capitalizado)
+    return lista_capitalizada
+
+
+lista_original = ["juan salvo", "henry courtney",
+                  "elizabeth bennet", "marge simpson"]
+lista_capitalizada = capitalizar_nombres(lista_original)
+
+
+for nombre in lista_capitalizada:
+    print(nombre)
+
+
+def capitalizar_nombres(lista_nombres):
+    return [nombre.title() for nombre in lista_nombres]
+
+
+lista_original = ["juan salvo", "henry courtney",
+                  "elizabeth bennet", "marge simpson"]
+lista_capitalizada = capitalizar_nombres(lista_original)
+
+for nombre in lista_capitalizada:
+    print(nombre)
